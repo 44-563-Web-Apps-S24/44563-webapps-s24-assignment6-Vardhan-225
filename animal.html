@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ 
+<title>Animal game</title>
+<body>
+
+<h1> Animal game by Akash Thanneeru</h1>
+
+<form>
+
+    <label for="hiddenAnimal">The hidden animal type</label>
+    <input type="password" id="hiddenAnimal" name="hiddenAnimal" value="Chicken"><br>
+
+    <label for="guessAnimal">Guess the animal</label>
+    <input type="text" id="guessAnimal" name="guessAnimal"><br>
+
+    <input type="button" onclick="checkAnimal()" value="Check the guess">
+</form>
+
+<p id="result">Correct: 0, Wrong: 0</p>
+
+<script>
+    
+    var wrong = 0;
+    var correct = 0;
+
+   
+    function checkAnimal() {
+        
+        var hiddenAnimal = document.getElementById("hiddenAnimal").value;
+        var guessedAnimal = document.getElementById("guessAnimal").value;
+
+
+        if (hiddenAnimal === guessedAnimal) {
+            correct++;
+            alert("Ruff ruff");
+        } else {
+            wrong++;
+            alert("Grrrr");
+        }
+
+        var resultHolder = document.getElementById("result");
+        resultHolder.innerHTML = "Correct: " + correct + ", Wrong: " + wrong;
+    }
+</script>
+
+</body>
+</html> 
