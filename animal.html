@@ -23,13 +23,11 @@
     
     var wrong = 0;
     var correct = 0;
-
    
     function checkAnimal() {
         
         var hiddenAnimal = document.getElementById("hiddenAnimal").value;
         var guessedAnimal = document.getElementById("guessAnimal").value;
-
 
         if (hiddenAnimal === guessedAnimal) {
             correct++;
@@ -43,6 +41,33 @@
         resultHolder.innerHTML = "Correct: " + correct + ", Wrong: " + wrong;
     }
 </script>
+
+<div id="imageContainer" onclick="selectImage()">
+    <img src="Espresso.jpg" alt="Espresso" style="width: 150px; height: 150px;">
+</div>
+
+<script>
+    var useImage = 1;
+    function selectImage() {
+        switch (useImage) {
+                case 1:
+                    document.getElementById("imageContainer").innerHTML = '<img src="Espresso.jpg" alt="Image 1" style="width: 150px; height: 150px;">';
+                    useImage = 2;
+                    break;
+                case 2:
+                    document.getElementById("imageContainer").innerHTML = '<img src="Negroni.jpg" alt="Image 2" style="width: 150px; height: 150px;">';
+                    useImage = 3;
+                    break;
+                case 3:
+                    document.getElementById("imageContainer").innerHTML = '<img src="Tequila.jpg" alt="Image 3" style="width: 150px; height: 150px;">';
+                    useImage = 1;
+                    break;
+                default:
+                    break;
+            }
+    }
+</script>
+
 
 </body>
 </html> 
