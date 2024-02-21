@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packing for a Trip by Akash Thanneeru</title>
+</head>
+
+<body>
+
+    <h1>Akash Thanneeru Packs for a Trip</h1>
+
+    <!-- Part 7: Use Checkboxes -->
+    <form>
+        <!-- Checkbox inputs -->
+        <label for="light">Pack light</label>
+        <input type="checkbox" id="light" name="light" value="True">
+        <label for="carry">Carry on</label>
+        <input type="checkbox" id="carry" name="carry" value="True">
+        <label for="tablet">Tablet</label>
+        <input type="checkbox" id="tablet" name="tablet" value="False">
+
+        <!-- Button to trigger selectPack() -->
+        <input type="button" onclick="selectPack()" value="Select for packing">
+    </form>
+
+    <!-- Tagged element to display results for Part 7 -->
+    <p id="resultPart7">Packing choices: </p>
+
+    <script>
+        // Global variable for Part 7
+        var my_pack = {};
+
+        // Function for Part 7
+        function selectPack() {
+            // Reset my_pack to an empty object
+            my_pack = {};
+
+            // Set properties based on checkbox state
+            my_pack.light = document.getElementById("light").checked;
+            my_pack.carry = document.getElementById("carry").checked;
+            my_pack.tablet = document.getElementById("tablet").checked;
+
+            // Display results for Part 7
+            document.getElementById("resultPart7").innerHTML = "Packing choices: " + JSON.stringify(my_pack);
+        }
+    </script>
+
+    <!-- Part 8: Work with the Object from Part 7 -->
+    <form>
+        <!-- Text inputs for month and price -->
+        <label for="travelMonth">Enter travel month</label>
+        <input type="text" id="travelMonth" name="travelMonth" value="May">
+        <label for="price">Enter price</label>
+        <input type="text" id="price" name="price">
+
+        <!-- Button to trigger updatePack() -->
+        <input type="button" onclick="updatePack()" value="Update the pack">
+    </form>
+
+    <!-- Tagged element to display results for Part 8 -->
+    <p id="resultPart8">Updated packing details: </p>
+
+    <script>
+        // Function for Part 8
+        function updatePack() {
+            // Get values from text input elements
+            var month = document.getElementById("travelMonth").value;
+            var price = document.getElementById("price").value;
+
+            // Set properties of my_pack with input values
+            my_pack.travelMonth = month;
+            my_pack.price = price;
+
+            // Display results for Part 8
+            document.getElementById("resultPart8").innerHTML = "Updated packing details: " + JSON.stringify(my_pack);
+        }
+    </script>
+
+</body>
+
+</html>
