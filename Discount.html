@@ -12,55 +12,86 @@
     <h1>Akash Thanneeru Discount Calculations</h1>
 
     <form>
-        <!-- Price per item input -->
+        
         <label for="price">Enter price per:</label>
         <input type="number" id="price" name="price" value="10"><br>
 
-        <!-- Number of items input -->
+        
         <label for="count">Enter the number of items:</label>
         <input type="number" id="count" name="count" value="9"><br>
 
-        <!-- Percent discount input -->
+        
         <label for="reductions">Enter the discount percent:</label>
         <input type="number" id="reductions" name="reductions" value="5"><br>
 
-        <!-- Button to trigger discount calculation -->
+        
         <input type="button" onclick="discount()" value="Show total">
     </form>
+    
+    <p id="resultPart5">Totals are:</p>
 
-    <!-- Tagged element to display results -->
-    <p id="result">Totals are:</p>
-
+   
     <script>
         function discount() {
-            // Get values from input elements
-            var price = parseFloat(document.getElementById("price").value);
-            var count = parseInt(document.getElementById("count").value);
-            var discountPercent = parseFloat(document.getElementById("reductions").value);
-
-            // Check for valid numeric inputs
+            
+            let price = parseFloat(document.getElementById("price").value);
+            let count = parseInt(document.getElementById("count").value);
+            let discountPercent = parseFloat(document.getElementById("reductions").value);
+            
             if (isNaN(price) || isNaN(count) || isNaN(discountPercent)) {
                 alert("Please enter valid numeric values for all inputs.");
                 return;
             }
 
-            // Initialize a local variable for output
-            var toShow = "";
+            let toShow = "";
+            
+            for (let i = 0; i < 5; i++) {
+                
+                let calculatedCost = price * count * (1 - discountPercent / 100);
 
-            // Loop for five iterations
-            for (var i = 0; i < 5; i++) {
-                // Calculate total value with discount percentage
-                var calculatedCost = price * count * (1 - discountPercent / 100);
-
-                // Append values to toShow
                 toShow += discountPercent + "% is calculated cost: " + calculatedCost.toFixed(2) + "; ";
-
-                // Increment discount percentage for the next iteration
+                
                 discountPercent++;
             }
+           
+            document.getElementById("resultPart5").innerHTML = "Totals are: " + toShow;
+        }
+    </script>
 
-            // Replace the innerHTML for the tagged element
-            document.getElementById("result").innerHTML = "Totals are: " + toShow;
+    <form>
+        <div id="results">Mathematical Calculations: </div>
+
+        <label for="sum">Sum</label>
+        <input type="radio" id="sum" onclick="chooseOp()" name="operation" value="sum">
+        <label for="mult">Multiply</label>
+        <input type="radio" id="mult" onclick="chooseOp()" name="operation" value="multiply">
+        <label for="exp">Exponent</label>
+        <input type="radio" id="exp" onclick="chooseOp()" name="operation" value="exponent">
+    </form>
+
+    
+    <p id="resultPart6">Result will be displayed here!! </p>
+
+    <script>
+        function chooseOp() {
+            let price = parseFloat(document.getElementById("price").value);
+            let discount = parseFloat(document.getElementById("reductions").value);
+            let sum = document.getElementById("sum").checked;
+            let mul = document.getElementById("mult").checked;
+            let exp = document.getElementById("exp").checked;
+
+            let result;
+
+            if (sum) {
+                result = price + discount;
+                document.getElementById("resultPart6").innerHTML = 'Sum of ' + price + ' and ' + discount + ' is ' + result;
+            } else if (mul) {
+                result = price * discount;
+                document.getElementById("resultPart6").innerHTML = 'Product of ' + price + ' and ' + discount + ' is ' + result;
+            } else if (exp) {
+                result = Math.pow(price, discount);
+                document.getElementById("resultPart6").innerHTML = price + ' raised to the power of ' + discount + ' is ' + result;
+            }
         }
     </script>
 
