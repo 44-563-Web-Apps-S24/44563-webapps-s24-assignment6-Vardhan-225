@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculations by Akash Thanneeru</title>
+</head>
+
+<body>
+
+    <h1>Akash Thanneeru Discount Calculations</h1>
+
+    <form>
+        <!-- Price per item input -->
+        <label for="price">Enter price per:</label>
+        <input type="number" id="price" name="price" value="10"><br>
+
+        <!-- Number of items input -->
+        <label for="count">Enter the number of items:</label>
+        <input type="number" id="count" name="count" value="9"><br>
+
+        <!-- Percent discount input -->
+        <label for="reductions">Enter the discount percent:</label>
+        <input type="number" id="reductions" name="reductions" value="5"><br>
+
+        <!-- Button to trigger discount calculation -->
+        <input type="button" onclick="discount()" value="Show total">
+    </form>
+
+    <!-- Tagged element to display results -->
+    <p id="result">Totals are:</p>
+
+    <script>
+        function discount() {
+            // Get values from input elements
+            var price = parseFloat(document.getElementById("price").value);
+            var count = parseInt(document.getElementById("count").value);
+            var discountPercent = parseFloat(document.getElementById("reductions").value);
+
+            // Check for valid numeric inputs
+            if (isNaN(price) || isNaN(count) || isNaN(discountPercent)) {
+                alert("Please enter valid numeric values for all inputs.");
+                return;
+            }
+
+            // Initialize a local variable for output
+            var toShow = "";
+
+            // Loop for five iterations
+            for (var i = 0; i < 5; i++) {
+                // Calculate total value with discount percentage
+                var calculatedCost = price * count * (1 - discountPercent / 100);
+
+                // Append values to toShow
+                toShow += discountPercent + "% is calculated cost: " + calculatedCost.toFixed(2) + "; ";
+
+                // Increment discount percentage for the next iteration
+                discountPercent++;
+            }
+
+            // Replace the innerHTML for the tagged element
+            document.getElementById("result").innerHTML = "Totals are: " + toShow;
+        }
+    </script>
+
+</body>
+
+</html>
