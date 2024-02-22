@@ -4,9 +4,9 @@ Introduction to Java Script and DOM
 
 Hosted at: https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-Vardhan-225
 
-Hosted Animal at: https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-Vardhan-225/animal.html
+Animal: https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-Vardhan-225/animal.html
 
-Hosted Discount at: https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-Vardhan-225/Discount.html
+Discount: https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-Vardhan-225/Discount.html
 
-Hosted Packing at: https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-Vardhan-225/Packing.html
+Packing: https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-Vardhan-225/Packing.html
 
